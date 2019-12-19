@@ -9,12 +9,14 @@ Word similarity: https://stackabuse.com/levenshtein-distance-and-text-similarity
 
 front = []
 back = []
+
+# Put your csv file in the same directory as this file, then just enter the name like below
 with open("it_es_words.csv") as stream:
     for line in stream:
         f, b = line.strip().split(",")
         if f == b:
             continue
-        front.append(f)
+        front.append(f) # This says front card is the first column, switch this line and the following for the reverse
         back.append(b)
 
 
@@ -26,8 +28,8 @@ for i in range(len(front)): #
         "version": 6,
         "params": {
             "note": {
-                "deckName": "Test",
-                "modelName": "Basic ", # (and reversed card) #! Currently doesnt work
+                "deckName": "Test", # Edit your deck name as you want
+                "modelName": "Basic ", # (and reversed card) Currently doesnt work
                 "fields": {
                     "Front": front[i],
                     "Back": back[i]
